@@ -30,8 +30,8 @@ var $dlgFont = (function() {
               + '</div>');
 
     var fonts = ['Agency FB', 'Algerian', 'Arial', 'Arial Rounded MT', 'Axure Handwriting', 'Bahnschrift', 'Baskerville Old Face', 'Bauhaus 93', 'Bell MT', 'Berlin Sans FB', 'Bernard MT', 'BlackAdder ITC'],
-        styles = ['常规', '斜体', '粗体', '粗偏斜体'],
-        sizes = ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '26', '28', '36', '48', '72'];
+       styles = ['常规', '斜体', '粗体', '粗偏斜体'],
+       sizes = ['8', '9', '10', '11', '12', '14', '16', '18', '20', '22', '24', '26', '28', '36', '48', '72'];
 
     var cfg = {
       family: 'Arial',
@@ -50,27 +50,27 @@ var $dlgFont = (function() {
       //添加DOM结构
       $('body').append($dlg);
       // X 关闭点击事件
-      $('.close-btn').click(()=>{
+      $('.close-btn').click(function(){
         $dlg.remove();
-      })
+      });
       // 确定 按钮点击事件
-      $('.btn-ok').click(()=>{
+      $('.btn-ok').click(function(){
         var font = {
           family: cfg.family,
           style: cfg.style,
           size: cfg.size
-        }
+        };
         cfg.okHandler(font);
         $dlg.remove();
-      })
+      });
       //取消 按钮点击事件
-      $('.btn-cancel').click(()=>{
+      $('.btn-cancel').click(function(){
           $dlg.remove();
-      })
+      });
 
       //脚本默认样式
-      $sample.css({'font-family':cfg.family})
-      $sample.css({'font-size':cfg.size+'pt'})
+      $sample.css({'font-family':cfg.family});
+      $sample.css({'font-size':cfg.size+'pt'});
 
       //样式列表保证只显示一个
       var $oldList1 = $('.font-family').find('.notepad-list');
@@ -90,9 +90,9 @@ var $dlgFont = (function() {
         select:cfg.family,
         fontFamily: true,
         selectHandler: function(e) {
-          console.log(e)
+          console.log(e);
           cfg.family = e;
-          $sample.css({'font-family':e})
+          $sample.css({'font-family':e});
         }
       }); 
       l2.show({
@@ -131,7 +131,7 @@ var $dlgFont = (function() {
         selectHandler: function(e) {
           console.log(e);
           cfg.size = e;
-          $sample.css({'font-size':e+'pt'})
+          $sample.css({'font-size':e+'pt'});
         }
       });
        
@@ -139,14 +139,14 @@ var $dlgFont = (function() {
       //脚本切换
       $("#sel").change(function(){
         var value=$("#sel").val();
-        console.log(value)
+        console.log(value);
         if(value == '西欧语言'){
-          $sample.html("AaBbYyZz")
+          $sample.html("AaBbYyZz");
         }
         else if(value == '中文 GB2312'){
           $sample.html("微软中文软件")
         }
-      })
+      });
       
       $dlg.click(function(e) {
         e.stopPropagation();
@@ -155,5 +155,5 @@ var $dlgFont = (function() {
 
     return({
         init:init
-    })
+    });
 })();
